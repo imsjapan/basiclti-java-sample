@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Basic LTI Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script type="text/javascript" href="/js/bootstrap.js" />
+</head>
+<body>
+    <div>
+        <h1>LTI Launch Parameters</h1>
+        <table class="table table-sm table-striped">
+            <!-- <caption>LTI Launch Parameters</caption> -->
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="param : ${ltiParams}">
+                    <td th:text="${param.key}" />
+                    <td th:text="${param.value}" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div>
+        <h1>POST Request Parameters</h1>
+        <table class="table table-sm table-striped">
+            <!-- <caption>POST Request Parameters</caption> -->
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="param : ${reqParams}">
+                    <td th:text="${param.key}" />
+                    <td>
+                        <ul class="list-unstyled">
+                            <li th:each="element : ${param.value}" th:text="${element}"/>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
