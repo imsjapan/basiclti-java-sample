@@ -28,6 +28,7 @@ public String getSecretForKey(String key) {
 
 ## 2.LMSからパラメータを受け取る
 引数HttpServletRequestでLTI Tool ConsumerからのLaunchリクエストを、LtiVerificationResultで上記1の認証情報の検証結果を受け取る。
+
 LtiController.java
 ```java
 @Lti
