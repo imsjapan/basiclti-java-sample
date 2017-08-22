@@ -18,7 +18,8 @@ Webアプリケーションフレームワークとして、Spring Bootを利用
 LTI Tool Consumerから渡されたkeyを受け取り、対応するsecretを返す。
 本来であれば、渡されたキーに対応するSecretをDBや認証サーバに問い合わせて取得することが想定されるが、ここではサンプルのため、固定文字列”secret”を返却。
 
-```MockKeyService.java
+MockKeyService.java
+```java
 @Override
 public String getSecretForKey(String key) {
   return "secret";
@@ -27,7 +28,8 @@ public String getSecretForKey(String key) {
 
 ## 2.LMSからパラメータを受け取る
 引数HttpServletRequestでLTI Tool ConsumerからのLaunchリクエストを、LtiVerificationResultで上記1の認証情報の検証結果を受け取る。
-```LtiController.java
+LtiController.java
+```java
 @Lti
 	@RequestMapping(value="/launch", method=RequestMethod.POST)
 	public String ltiEntry(HttpServletRequest request, LtiVerificationResult result) {
